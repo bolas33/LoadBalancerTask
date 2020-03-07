@@ -3,7 +3,7 @@
 namespace Tests;
 
 use LoadBalancer\Fake\Request;
-use LoadBalancer\LoadBalancerService;
+use LoadBalancer\LoadBalancer;
 use LoadBalancer\Model\StrategyInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -15,8 +15,8 @@ class LoadBalancerServiceTest extends TestCase
         $loadBalancingAlgorithm = $this->getMockBuilder(StrategyInterface::class)->getMock();
 
         $this->assertInstanceOf(
-            LoadBalancerService::class,
-            new LoadBalancerService($hosts, $loadBalancingAlgorithm)
+            LoadBalancer::class,
+            new LoadBalancer($hosts, $loadBalancingAlgorithm)
         );
     }
 
@@ -24,7 +24,7 @@ class LoadBalancerServiceTest extends TestCase
     {
         $hosts = [];
         $loadBalancingAlgorithm = $this->getMockBuilder(StrategyInterface::class)->getMock();
-        $loadBalancer = new LoadBalancerService($hosts, $loadBalancingAlgorithm);
+        $loadBalancer = new LoadBalancer($hosts, $loadBalancingAlgorithm);
         $request = new Request();
 
         try {

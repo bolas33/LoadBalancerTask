@@ -6,7 +6,7 @@ use LoadBalancer\Fake\Request;
 use LoadBalancer\Model\Api\HostInstanceInterface;
 use LoadBalancer\Model\StrategyInterface;
 
-class LoadBalancerService
+class LoadBalancer
 {
     /**
      * @var HostInstanceInterface[]
