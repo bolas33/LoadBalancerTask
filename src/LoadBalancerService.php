@@ -26,6 +26,8 @@ class LoadBalancerService
 
     public function handleRequest(Request $request): void
     {
-        throw new \Exception('not working');
+        $this->strategy->setHosts($this->hostInstances);
+        $host = $this->strategy->getNextHost();
+        $host->handleRequest($request);
     }
 }

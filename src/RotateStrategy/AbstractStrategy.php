@@ -9,26 +9,26 @@ abstract class AbstractStrategy
     /**
      * @var HostInstanceInterface[]
      */
-    protected array $hostInstances;
+    protected array $hosts;
 
     /**
-     * @param HostInstanceInterface[] $hostInstances
+     * @param HostInstanceInterface[] $hosts
      */
-    public function setHosts(array $hostInstances): void
+    public function setHosts(array $hosts): void
     {
-        $this->hostInstances = $hostInstances;
+        $this->hosts = $hosts;
     }
 
-    public function addHost(HostInstanceInterface $hostInstance): void
+    public function addHost(HostInstanceInterface $host): void
     {
-        $this->hostInstances[] = $hostInstance;
+        $this->hosts[] = $host;
     }
 
-    public function removeHost(HostInstanceInterface $hostInstance): void
+    public function removeHost(HostInstanceInterface $host): void
     {
-        foreach($this->hostInstances as $host) {
-            if ($host->getUniqueId() === $hostInstance->getUniqueId()) {
-                unset($this->hostInstances[$hostInstance->getUniqueId()]);
+        foreach($this->hosts as $hostInstance) {
+            if ($hostInstance->getUniqueId() === $host->getUniqueId()) {
+                unset($this->hosts[$host->getUniqueId()]);
             }
         }
     }

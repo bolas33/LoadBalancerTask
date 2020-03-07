@@ -9,7 +9,7 @@ class DataStore
 
     }
 
-    public function save()
+    public function save($data)
     {
 
     }
