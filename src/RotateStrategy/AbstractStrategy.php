@@ -18,18 +18,4 @@ abstract class AbstractStrategy
     {
         $this->hosts = $hosts;
     }
-
-    public function addHost(HostInstanceInterface $host): void
-    {
-        $this->hosts[] = $host;
-    }
-
-    public function removeHost(HostInstanceInterface $host): void
-    {
-        foreach($this->hosts as $hostInstance) {
-            if ($hostInstance->getUniqueId() === $host->getUniqueId()) {
-                unset($this->hosts[$host->getUniqueId()]);
-            }
-        }
-    }
 }
